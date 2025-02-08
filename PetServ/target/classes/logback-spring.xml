@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+
+    <!-- Configuración para la consola con colores ANSI -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <!-- Patrón de log con colores ANSI, azul para INFO, verde para DEBUG, rojo para ERROR y sin color para otros -->
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} 
+                %highlight(%-5level){ 
+                    INFO=\u001B[34m, 
+                    DEBUG=\u001B[32m, 
+                    WARN=\u001B[33m, 
+                    ERROR=\u001B[31m, 
+                    DEFAULT=\u001B[0m
+                } 
+                [%thread] 
+                %-40.40logger{39} 
+                : %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender para archivo sin colores -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/app/logs/Pet.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>/app/logs/Autos_%d{dd-MM-yyyy}.log%i</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>350MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <!-- Patrón para los logs del archivo sin colores -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } --- %-40.40logger{39} : %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configura el nivel de log y asigna los appenders -->
+    <root level="WARNING">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
