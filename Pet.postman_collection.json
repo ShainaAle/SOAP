@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "413f27c0-0cfa-4dba-b001-73df389664c4",
+		"name": "Pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39492362"
+	},
+	"item": [
+		{
+			"name": "GetPet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/Pet/M-001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"M-001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/Pet/M-001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"M-001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPetInvalid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPet\" : \"M-007\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Pet/M-100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"M-100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPetValid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idPet\": \"M-020\",\r\n  \"idClient\": \"C-001\",\r\n  \"petName\": \"Ruth\",\r\n  \"petBreed\": \"Pitbull\",\r\n  \"petAge\": 4,\r\n  \"dogWeight\": 35.76\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Pet/addPet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"addPet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPetInvalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idPet\": \"M-001\",\r\n  \"idClient\": \"C-001\",\r\n  \"petName\": \"Ruth\",\r\n  \"petBreed\": \"Pitbull\",\r\n  \"petAge\": 1,\r\n  \"dogWeight\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/Pet/addPet",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"addPet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutPetValid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"petName\": \"Ruth\",\r\n  \"petBreed\": \"Pitbull\",\r\n  \"petAge\": 10,\r\n  \"dogWeight\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Pet/updatePet/M-001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"updatePet",
+						"M-001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutPetInvalid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"petName\": \"Ruth\",\r\n  \"petBreed\": \"Pitbull\",\r\n  \"petAge\": 4,\r\n  \"dogWeight\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/Pet/updatePet/M-578",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"updatePet",
+						"M-578"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelatePet",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/Pet/deletePet/M-099",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pet",
+						"deletePet",
+						"M-099"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DelatePetInvalid",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/Pets/deletePet/M-100",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"Pets",
+						"deletePet",
+						"M-100"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
